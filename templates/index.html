@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Health Monitering </title>
+
+    <!-- Bootstraps Java Scipts Links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+
+    <!-- JQuery links  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <!--High CHART LIVE  -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <!--Gauge  -->
+    <script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+
+    <!-- <div class="jumbotron">
+        <h1 class="text-center text-white">Welcome to Electromotion Dashboard </h1>
+    </div>
+    <br>
+    <br> -->
+    <!-- Image and text -->
+    <div>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+               
+                    <img src="https://th.bing.com/th/id/OIP.BzlagjKJuq6wgDXKy3n56AHaHa?pid=ImgDet&rs=1" width="100" height="100"
+                    alt="">
+               
+            </a>
+        </nav>
+    </div>
+    <br>
+
+    <div class="container-fluid my-custom-class" style="margin-top: 30px;">
+
+        <div class="row">
+
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor1"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor2"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor3"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor4"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor5"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br> -->
+
+
+
+            <!-- <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor1"> Sensor : </h1>
+            </div>
+            <br>
+
+            <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor2">Sensor :</h1>
+            </div>
+            <br>
+            <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor3"> Sensor : </h1>
+            </div>
+            <br>
+
+            <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor4">Sensor :</h1>
+            </div>
+            <br>
+            <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor5"> Sensor : </h1>
+            </div>
+            <br>
+            <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor6"> Sensor : </h1>
+            </div>
+            <br>
+            <div class="col-sm jumbotron p-2 mx-1">
+                <h1 class="sensor7"> Sensor : </h1>
+            </div>
+            <br> -->
+        </div>
+        <br>
+        <!-- <div class="row">
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor6"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor7"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor8"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor9"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor10"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor11"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor12"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+
+            <div class="col-sm">
+                <div class="p-2 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                    <div>
+                        <h3 class="sensor13"> Sensor : </h3>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+        </div>
+    </div> -->
+    <br>
+
+
+
+    <script>
+        // let btnPrimary = document.querySelector('#primary');
+        let btnDanger = document.querySelector('#danger');
+        // let btnSuccess = document.querySelector('#success');
+
+        // btnPrimary.addEventListener('click', () => btnPrimary.style.backgroundColor = '#337ab7')
+        btnDanger.addEventListener('click', () => btnDanger.style.backgroundColor = ' #d86135')
+        // btnSuccess.addEventListener('click', () => btnSuccess.style.backgroundColor = '#4cae4c')
+
+    </script>
+    <script>
+        var clicks = 10;
+        let btnSuccess = document.querySelector('#success');
+
+
+        function onClick() {
+
+            setInterval(function () {
+                clicks--;
+                if (clicks >= 0) {
+                    id = document.getElementById("clicks");
+                    id.innerHTML = clicks;
+                } if (clicks == 0) {
+
+                    btnSuccess.addEventListener(btnSuccess.style.backgroundColor = '#34A56F')
+
+                }
+
+            }, 1000);
+
+
+
+
+        };
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <style>
+        .jumbotron {
+            widows: 150px;
+            height: 220px;
+            justify-content: center;
+        }
+
+        .row {
+            justify-content: center;
+        }
+    </style>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="container-fluid" id="data-Throttle">
+
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="container-fluid" id="data-Motor_Speed">
+
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="container-fluid" id="data-Dc_Power">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        var chartDcPower;
+        var chartMotorSpeed;
+        var chartThrottle;
+
+        function requestData() {
+            // Ajax call to get the Data from Flask
+            var requests = $.get('/data');
+
+            var tm = requests.done(function (result) {
+
+
+
+                var seriesDcPower = chartDcPower.series[0],
+                    shiftDcPower = seriesDcPower.data.length > 20;
+
+
+                var seriesMotorSpeed = chartMotorSpeed.series[0],
+                    shiftMotorSpeed = seriesDcPower.data.length > 20;
+
+                var seriesThrottle = chartThrottle.series[0],
+                    shifThrottle = seriesDcPower.data.length > 20;
+
+
+                // Add the Point
+                // Time Temperature\
+                var data1 = [];
+                data1.push(result[0]);
+                data1.push(result[1]);
+
+
+                // Add the Point
+                // Time DcVoltage
+                var data2 = [];
+                data2.push(result[0]);
+                data2.push(result[2]);
+
+                var data3 = [];
+                data3.push(result[0]);
+                data3.push(result[3]);
+
+                var data4 = [];
+                data4.push(result[0]);
+                data4.push(result[4]);
+
+                var data5 = [];
+                data5.push(result[0]);
+                data5.push(result[5]);
+
+                var data6 = [];
+                data6.push(result[0]);
+                data6.push(result[6]);
+
+                var data7 = [];
+                data7.push(result[0]);
+                data7.push(result[7]);
+
+                var data8 = [];
+                data8.push(result[0]);
+                data8.push(result[8]);
+
+                var data9 = [];
+                data9.push(result[0]);
+                data9.push(result[9]);
+
+                var data10 = [];
+                data10.push(result[0]);
+                data10.push(result[10]);
+
+                var data11 = [];
+                data11.push(result[0]);
+                data11.push(result[11]);
+
+                var data12 = [];
+                data12.push(result[0]);
+                data12.push(result[12]);
+
+                var data13 = [];
+                data13.push(result[0]);
+                data13.push(result[13]);
+
+
+
+
+
+
+
+
+                chartDcPower.series[0].addPoint(data1, true, shiftDcPower);
+                chartMotorSpeed.series[0].addPoint(data2, true, shiftMotorSpeed);
+                chartThrottle.series[0].addPoint(data3, true, shifThrottle);
+                $(".sensor1").text("");
+                $(".sensor1").text("Temperature : " + Math.round(data1[1]));
+
+                $(".sensor2").text("");
+                $(".sensor2").text("Oximeter : " + Math.round(data2[1]));
+
+
+                $(".sensor3").text("");
+                $(".sensor3").text("Heart Rate : " + Math.round(data3[1]));
+
+                $(".sensor4").text("");
+                $(".sensor4").text("Injection Count : " + Math.round(data4[1]));
+
+                $(".sensor5").text("");
+                $(".sensor5").text("Contorller temperature : " + Math.round(data5[1]) + "°C");
+
+                $(".sensor6").text("");
+                $(".sensor6").text("Motor temperature : " + Math.round(data6[1]) + "°C");
+
+                $(".sensor7").text("");
+                $(".sensor7").text("Throttle :" + Math.round(data7[1]) + "%");
+
+                $(".sensor8").text("");
+                $(".sensor8").text("Battery : " + Math.round(data8[1]) + "%");
+
+                $(".sensor9").text("");
+                $(".sensor9").text("Distancetravelled : " + Math.round(data9[1]) + "km/hr");
+
+                $(".sensor10").text("");
+                $(".sensor10").text("Gearstatus : " + (data10[1]));
+
+                $(".sensor11").text("");
+                $(".sensor11").text("Vehicle direction : " + (data11[1]));
+
+                $(".sensor12").text("");
+                $(".sensor12").text("Fault : " + Math.round(data12[1]));
+
+                $(".sensor13").text("");
+                $(".sensor13").text("CdState : " + (data13[1]));
+
+
+
+
+                // call it again after one second
+                setTimeout(requestData, 2000);
+
+            });
+        }
+
+        $(document).ready(function () {
+            // --------------Chart 1 ----------------------------
+
+
+
+
+            //-----------------------------chart 2 ends-----------------------------------
+            chartDcPower = new Highcharts.Chart({
+                chart:
+                {
+                    renderTo: 'data-Dc_Power',
+                    defaultSeriesType: 'area',
+                    events: {
+                        load: requestData
+                    }
+                },
+                title:
+                {
+                    text: 'Tempreature'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                    }
+                },
+                series: [{
+                    color: '#34A56F',
+                    lineColor: '#303030',
+                    name: 'Power',
+                    data: []
+                }]
+            });
+
+
+
+
+            //-----------------------------chart 8 ends-----------------------------------
+
+            chartMotorSpeed = new Highcharts.Chart({
+                chart:
+                {
+                    renderTo: 'data-Motor_Speed',
+                    defaultSeriesType: 'area',
+                    events: {
+                        load: requestData
+                    }
+                },
+                title:
+                {
+                    text: 'Oximeter'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                    }
+                },
+                series: [{
+                    color: '#34A56F',
+                    lineColor: '#303030',
+                    name: 'Speed',
+                    data: []
+                }]
+            });
+
+            chartThrottle = new Highcharts.Chart({
+                chart:
+                {
+                    renderTo: 'data-Throttle',
+                    defaultSeriesType: 'area',
+                    events: {
+                        load: requestData
+                    }
+                },
+                title:
+                {
+                    text: 'Heart Rate'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150,
+                    maxZoom: 20 * 1000
+                },
+                yAxis: {
+                    minPadding: 0.2,
+                    maxPadding: 0.2,
+                    title: {
+                        text: 'Value',
+                        margin: 80
+                    }
+                },
+                series: [{
+                    color: '#34A56F',
+                    lineColor: '#303030',
+                    name: 'Heart Rate',
+                    data: []
+                }]
+            });
+
+
+
+
+
+
+
+
+        });
+
+    </script>
+
+
+
+
+    <!-- <script>
+        class Image {
+
+            constructor(imgUrl, size) {
+                this.imgUrl = imgUrl;
+                this.size = size;
+            }
+
+            backgroundImage() {
+                console.log("inside function ")
+                // Select the Image
+                var img = document.querySelector(".jumbotron");
+
+                // create Css Text
+                var text = "margin:auto;" +
+                    "background-image: url(" + this.imgUrl + ");" +
+                    "background-size:cover;" +
+                    "opacity:1;" +
+                    "background-blend-mode: darken;" +
+                    "height: " + this.size + "vh;";
+
+                img.style.cssText = text;
+            }
+
+            centerTitle() {
+                /*
+                    Center the Title
+                 */
+                var t1 = document.querySelector("#title");
+                t1.classList.add("text-white");
+                t1.classList.add("text-center");
+                t1.classList.add("display-3");
+            }
+        }
+        const imgUrl = 'https://static.vecteezy.com/system/resources/previews/000/179/685/original/free-electric-car-charging-vector-illustration.jpg'
+        const size = "34";
+        var obj = new Image(imgUrl, size);
+        obj.backgroundImage();
+        obj.centerTitle();
+    </script> -->
+</body>
+
+
+</html>
